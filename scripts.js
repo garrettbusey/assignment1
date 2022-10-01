@@ -96,13 +96,15 @@ $(function() {
     // split the input along the ;
     var input = createInput.val().split(";");
 
+    var time = new Date();
+
         //TODO: creat a tweet
         $.ajax({
           url: '/tweetinfo',
           method: 'POST',
           contentType: 'application/json',
           // use the first part of the input as id and second part as the text
-          data: JSON.stringify({ id: input[0], text: input[1] }),
+          data: JSON.stringify({ id: input[0], text: input[1], created_at: time }),
           success: function(response) {
             console.log(response);
             createInput.val('');

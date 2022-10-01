@@ -63,11 +63,13 @@ app.post('/tweetinfo', function(req, res) {
   // grab the data sent down from scripts.js
   var tweetText = req.body.text;
   var tweetID = req.body.id;
+  var created_at = req.body.created_at;
 
   // push the new tweet into the tweetinfo array so it can be displayed
   tweetinfo.push({
     id: tweetID,
-    text: tweetText
+    text: tweetText,
+    created_at: created_at
   });
   res.send('success');
 
